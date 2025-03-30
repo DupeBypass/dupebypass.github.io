@@ -13,7 +13,7 @@ h1{
     color: #c5006c;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-weight: 1200;
-    font-size: 4vw;
+    font-size: 500%;
     line-height: 0%;
 }
 
@@ -21,16 +21,16 @@ h2{
     color: #c5006c;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-weight: 600;
-    font-size: 3vw;
+    font-size: 350%;
     line-height: 0%;
+    word-wrap: break-word
 }
 
 h3{
     color: gray;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 2vw;
+    font-size: 200%;
     font-weight: 400;
-    line-height: 0%;
 }
 
 h4{
@@ -44,8 +44,9 @@ h4{
 
 #socials{
     text-align: center;
+    text-align: top;
     position: fixed;
-    bottom: 25%;
+    bottom: 22%;
     width: 100%;
 }
 
@@ -57,20 +58,23 @@ h4{
 .container {
     display: flex;
     position: fixed;
+    left: 50%;
     bottom: 10%;
-    width: 100%;
+    transform: translateX(-50%);
+    width: 30%;
+    height: 10vh; /* Using viewport units for consistency */
     justify-content: center;
-    gap: 5%; /* Space between divs */
-  }
-  
-  .box img {
-    width: 100%;    /* Fill the .box container */
-    height: auto;   /* Maintain aspect ratio */
-    max-width: 64px; /* Enforce maximum size */
-  }
-  
-  .box {
-    max-width: 64px; /* Limit container size */
-    flex-shrink: 0;  /* Prevent shrinking */
-    min-width: 0;    /* Override flex default min-width */
-  }
+    gap: 4%;
+}
+
+.box {
+    height: 100%; /* Crucial for height inheritance */
+    position: relative; /* For future-proofing */
+}
+
+.box img {
+    height: 100%; /* Force height match */
+    width: auto; /* Let width scale proportionally */
+    object-fit: contain; /* No distortion guarantee */
+    display: block; /* Remove inline spacing */
+}
